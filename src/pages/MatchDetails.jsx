@@ -43,8 +43,6 @@ const MatchDetails = ({ matchId }) => {
   if (error) return <p>ERROR: {error.message}</p>;
   if (!data) return <p>Not found</p>;
 
-  console.log(matchId)
-
   return (
     <MatchResultsContainer>
         <TeamContainer>
@@ -61,7 +59,7 @@ const MatchDetails = ({ matchId }) => {
                 data?.crystalMatches[0]?.playersConnection?.edges
                     .filter((edge) => edge.team === 1)
                     .map((edge) =>
-                        <TeamMember>
+                        <TeamMember key={ edge.node.displayName }>
                             <Player 
                                 name={ edge.node.displayName } 
                                 kills={ edge.kills } 
@@ -86,7 +84,7 @@ const MatchDetails = ({ matchId }) => {
                 data?.crystalMatches[0].playersConnection.edges
                     .filter((edge) => edge.team === 2)
                     .map((edge) =>
-                        <TeamMember>
+                        <TeamMember key={ edge.node.displayName }>
                             <Player
                                 name={ edge.node.displayName } 
                                 kills={ edge.kills } 

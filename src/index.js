@@ -11,11 +11,9 @@ import {
 } from "react-router-dom";
 import Matches from './routes/Matches'
 
-const cache = new InMemoryCache({});
-
 const client = new ApolloClient({
-  cache,
-  uri: process.env.REACT_APP_APOLLO_URL
+  uri: process.env.REACT_APP_APOLLO_URL,
+  cache: new InMemoryCache({})
 });
 
 ReactDOM.render(

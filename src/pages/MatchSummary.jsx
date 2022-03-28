@@ -11,8 +11,6 @@ const MatchSummary = () => {
     if (error) return <p>ERROR: {error.message}</p>;
     if (!data) return <p>Not found</p>;
 
-    console.log(data)
-
     return (
         <MatchList data={data} />
     );
